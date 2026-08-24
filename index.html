@@ -301,6 +301,8 @@
         <button class="chip" data-f="Limpieza" data-es="Limpieza" data-en="Janitorial">Limpieza</button>
         <button class="chip" data-f="Cocina" data-es="Cocina" data-en="Kitchen">Cocina</button>
         <button class="chip" data-f="Cuidado" data-es="Cuidado personal" data-en="Personal care">Cuidado personal</button>
+        <button class="chip" data-f="Cama" data-es="Textiles de cama" data-en="Bedding">Textiles de cama</button>
+        <button class="chip" data-f="Juguetería" data-es="Juguetería" data-en="Toys">Juguetería</button>
         <div class="margin-toggle">
           <span data-es="Ver margen (interno)" data-en="Show margin (internal)">Ver margen (interno)</span>
           <div class="switch" id="marginSwitch" onclick="toggleMargin()"></div>
@@ -423,6 +425,15 @@ const PRODUCTS = [
   {sku:"DD-i411379", name:"Vasos de papel 5oz desechables (caja)", cat:"Cocina", sup:"DollarDays", unit:"$/caja", cost:10.29, b2b:13.99, ic:"◍", real:true},
   {sku:"DD-i1982920", name:"Pajillas surtidas, 100 count", cat:"Cocina", sup:"DollarDays", unit:"$/paquete", cost:2.50, b2b:3.49, ic:"◈", real:true},
   {sku:"DD-i2316166", name:"Set de cuchillos de cocina inox, 2pk", cat:"Cocina", sup:"DollarDays", unit:"$/set", cost:1.70, b2b:2.49, ic:"◆", real:true},
+  {sku:"DD-i2373472", name:"Cobijas de forro polar 50x60, surtidas", cat:"Cama", sup:"DollarDays", unit:"$/unidad", cost:3.99, b2b:5.99, ic:"▩", real:true},
+  {sku:"DD-i2387891", name:"Cobija sherpa de franela 50x60", cat:"Cama", sup:"DollarDays", unit:"$/unidad", cost:9.99, b2b:13.99, ic:"▦", real:true},
+  {sku:"DD-i2374885", name:"Juego de sábanas microfibra, Full (2pz)", cat:"Cama", sup:"DollarDays", unit:"$/juego", cost:14.95, b2b:19.99, ic:"▧", real:true},
+  {sku:"DD-i2129002", name:"Sábanas planas Twin, blancas 66x104", cat:"Cama", sup:"DollarDays", unit:"$/unidad", cost:6.52, b2b:8.99, ic:"▤", real:true},
+  {sku:"DD-i2390326", name:"Almohadas estándar Golden Choice", cat:"Cama", sup:"DollarDays", unit:"$/unidad", cost:10.50, b2b:13.99, ic:"◫", real:true},
+  {sku:"DD-i2394180", name:"Juego Cuatro en Línea", cat:"Juguetería", sup:"DollarDays", unit:"$/unidad", cost:3.55, b2b:4.99, ic:"◉", real:true},
+  {sku:"DD-i2383276", name:"Juegos magnéticos de viaje, 240 piezas", cat:"Juguetería", sup:"DollarDays", unit:"$/paquete", cost:2.77, b2b:3.99, ic:"◈", real:true},
+  {sku:"DD-i2364174", name:"Fichas de madera \"Mis Emociones\", 18pz (2+)", cat:"Juguetería", sup:"DollarDays", unit:"$/set", cost:25.99, b2b:34.99, ic:"◧", real:true},
+  {sku:"DD-i2317852", name:"Ungame de bolsillo, todas las edades (2-6 jug.)", cat:"Juguetería", sup:"DollarDays", unit:"$/unidad", cost:11.69, b2b:15.99, ic:"◆", real:true},
   {sku:"UL-SOON", name:"Empaque y envío Uline (a cotizar)", cat:"Empaque", sup:"Uline", unit:"cotizar", cost:null, b2b:null, ic:"▤", real:false},
 ];
 
