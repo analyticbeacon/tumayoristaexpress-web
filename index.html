@@ -290,7 +290,7 @@
       <div class="sec-head">
         <div>
           <div class="sec-num">02 / <span data-es="Catálogo" data-en="Catalog">Catálogo</span></div>
-          <h2 data-es="Productos en incorporación" data-en="Catalog in progress">Productos en incorporación</h2>
+          <h2 data-es="Catálogo de mayoreo" data-en="Wholesale catalog">Catálogo de mayoreo</h2>
         </div>
         <p class="sec-sub" data-es="Precios de costo reales de proveedores aprobados. El precio B2B es sugerido sobre costo; el margen es interno. Ampliando catálogo." data-en="Real cost prices from approved suppliers. B2B price is suggested over cost; margin is internal. Catalog expanding.">Precios de costo reales de proveedores aprobados. El precio B2B es sugerido sobre costo; el margen es interno. Ampliando catálogo.</p>
       </div>
@@ -399,15 +399,22 @@
 <script>
 /* ---------- CATÁLOGO (datos reales + muestras marcadas) ---------- */
 // cost = costo unitario REAL de proveedor. b2b = precio sugerido (editable). Margen = b2b - cost.
+// Costos REALES de DollarDays (cuenta exenta, leídos 2026-08-24). SKU = ID DollarDays.
+// b2b = precio de reventa sugerido sobre costo (editable). margen = b2b - cost.
 const PRODUCTS = [
-  {sku:"DD-ZIP1G-1000", name:"Bolsas zip 1 galón (caja 1,000)", cat:"Empaque", sup:"DollarDays", unit:"$/unidad", cost:0.10, b2b:0.18, ic:"▨", real:true},
-  {sku:"UL-BOX-S", name:"Cajas de envío corrugadas (surtido)", cat:"Empaque", sup:"Uline", unit:"$/unidad", cost:null, b2b:null, ic:"▤", real:false},
-  {sku:"DD-WIPE-CS", name:"Toallitas de limpieza a granel", cat:"Limpieza", sup:"DollarDays", unit:"$/unidad", cost:null, b2b:null, ic:"❖", real:false},
-  {sku:"UL-GLOVE-NIT", name:"Guantes de nitrilo (caja 100)", cat:"Limpieza", sup:"Uline", unit:"$/caja", cost:null, b2b:null, ic:"✦", real:false},
-  {sku:"DD-FOIL-RL", name:"Papel aluminio institucional", cat:"Cocina", sup:"DollarDays", unit:"$/rollo", cost:null, b2b:null, ic:"▧", real:false},
-  {sku:"DD-CUP-16", name:"Vasos desechables 16oz (paquete)", cat:"Cocina", sup:"DollarDays", unit:"$/paquete", cost:null, b2b:null, ic:"◍", real:false},
-  {sku:"DD-SOAP-BULK", name:"Jabón de manos a granel", cat:"Cuidado", sup:"DollarDays", unit:"$/unidad", cost:null, b2b:null, ic:"◐", real:false},
-  {sku:"DD-TOWEL-PPR", name:"Toallas de papel institucionales", cat:"Limpieza", sup:"DollarDays", unit:"$/rollo", cost:null, b2b:null, ic:"▥", real:false},
+  {sku:"DD-i312971", name:"Pañuelos de bolsillo 2 capas, 15ct", cat:"Cuidado", sup:"DollarDays", unit:"$/unidad", cost:0.31, b2b:0.49, ic:"◐", real:true},
+  {sku:"DD-i2382046", name:"Pañuelos faciales 2 capas, 40/caja", cat:"Cuidado", sup:"DollarDays", unit:"$/unidad", cost:0.44, b2b:0.69, ic:"◑", real:true},
+  {sku:"DD-i2366268", name:"Pañuelos faciales de bolsillo, 25 hojas", cat:"Cuidado", sup:"DollarDays", unit:"$/unidad", cost:0.58, b2b:0.89, ic:"◒", real:true},
+  {sku:"DD-i46709", name:"Cepillo de baño con base, blanco 15\"", cat:"Limpieza", sup:"DollarDays", unit:"$/unidad", cost:2.63, b2b:3.79, ic:"❖", real:true},
+  {sku:"DD-i2381283", name:"Cápsulas de detergente, Fresh, 10pk", cat:"Limpieza", sup:"DollarDays", unit:"$/paquete", cost:2.19, b2b:3.19, ic:"✦", real:true},
+  {sku:"DD-i2386451", name:"Toallas de papel, 30 pack", cat:"Limpieza", sup:"DollarDays", unit:"$/paquete", cost:2.26, b2b:3.29, ic:"▥", real:true},
+  {sku:"DD-ZIP1G", name:"Bolsas zip 1 galón (caja 1,000)", cat:"Empaque", sup:"DollarDays", unit:"$/unidad", cost:0.10, b2b:0.18, ic:"▨", real:true},
+  {sku:"DD-i2393032", name:"Bolsas de basura 60 gal, heavy duty (caja)", cat:"Empaque", sup:"DollarDays", unit:"$/caja", cost:64.29, b2b:89.99, ic:"▤", real:true},
+  {sku:"DD-i2316305", name:"Vasos plásticos 16oz, surtidos, 4 pack", cat:"Cocina", sup:"DollarDays", unit:"$/paquete", cost:1.50, b2b:2.29, ic:"◍", real:true},
+  {sku:"DD-i2362977", name:"Vasos plásticos 20oz", cat:"Cocina", sup:"DollarDays", unit:"$/unidad", cost:1.35, b2b:1.99, ic:"◌", real:true},
+  {sku:"DD-i2287798", name:"Mug de viaje 16.5oz", cat:"Cocina", sup:"DollarDays", unit:"$/unidad", cost:4.07, b2b:5.99, ic:"▧", real:true},
+  {sku:"DD-i2353470", name:"Termo al vacío 16oz", cat:"Cocina", sup:"DollarDays", unit:"$/unidad", cost:9.39, b2b:12.99, ic:"◎", real:true},
+  {sku:"UL-SOON", name:"Empaque y envío Uline (próximamente)", cat:"Empaque", sup:"Uline", unit:"$/caja", cost:null, b2b:null, ic:"▤", real:false},
 ];
 
 const grid=document.getElementById('catGrid');
