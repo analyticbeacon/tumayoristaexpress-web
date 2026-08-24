@@ -10,16 +10,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#171512;
-    --ink-2:#2c2823;
-    --paper:#f4efe4;
-    --paper-2:#ece5d6;
-    --cargo:#e2571e;      /* naranja carga */
-    --cargo-dk:#b8410f;
-    --amber:#f0a91d;
-    --line:#d8cfba;
-    --muted:#7a7161;
-    --ok:#2f7d48;
+    --ink:#0a192f;        /* navy profundo */
+    --ink-2:#12294a;
+    --paper:#ffffff;
+    --paper-2:#eef2f8;    /* azul muy claro */
+    --cargo:#f5b301;      /* amarillo señal (relleno/acento) */
+    --cargo-dk:#1b3a6b;   /* azul para texto-acento (legible sobre blanco) */
+    --amber:#facc15;
+    --line:#d5deec;
+    --muted:#63708a;
+    --ok:#1f7a46;
     --maxw:1200px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -61,8 +61,8 @@
   .lang{display:flex;border:1.5px solid var(--ink);font-family:'Space Mono';font-size:12px;font-weight:700;overflow:hidden}
   .lang button{background:none;border:0;padding:5px 9px;cursor:pointer;color:var(--ink)}
   .lang button.on{background:var(--ink);color:var(--paper)}
-  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--cargo);color:#fff;font-weight:700;padding:12px 20px;font-size:14px;text-transform:uppercase;letter-spacing:.05em;border:0;cursor:pointer;transition:transform .12s,background .2s;box-shadow:4px 4px 0 var(--ink)}
-  .btn:hover{background:var(--cargo-dk);transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--cargo);color:var(--ink);font-weight:700;padding:12px 20px;font-size:14px;text-transform:uppercase;letter-spacing:.05em;border:0;cursor:pointer;transition:transform .12s,background .2s,color .2s;box-shadow:4px 4px 0 var(--ink)}
+  .btn:hover{background:var(--ink);color:#fff;transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--cargo)}
   .btn.ghost{background:none;color:var(--ink);box-shadow:none;border:1.5px solid var(--ink)}
   .btn.ghost:hover{background:var(--ink);color:var(--paper)}
   .menu-btn{display:none;background:none;border:0;font-size:26px;cursor:pointer}
@@ -72,7 +72,7 @@
   .kicker{font-family:'Space Mono';font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--cargo-dk);margin-bottom:20px;display:flex;align-items:center;gap:10px}
   .kicker::before{content:"";width:34px;height:2px;background:var(--cargo)}
   .hero h1{font-size:clamp(46px,8.5vw,104px);max-width:15ch}
-  .hero h1 em{font-style:normal;color:var(--cargo);position:relative}
+  .hero h1 em{font-style:normal;color:var(--ink);background:linear-gradient(transparent 56%,var(--cargo) 56%);padding:0 .06em;position:relative}
   .hero p.lead{font-size:clamp(18px,2.2vw,22px);max-width:52ch;margin:26px 0 32px;color:var(--ink-2)}
   .hero-cta{display:flex;gap:16px;flex-wrap:wrap}
   .hero-figure{position:absolute;right:-40px;top:40px;width:min(42vw,480px);opacity:.9;pointer-events:none}
