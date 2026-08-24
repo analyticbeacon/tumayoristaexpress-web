@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tu Mayorista Express LLC — Distribución mayorista B2B · South Florida</title>
+<meta name="description" content="Tu Mayorista Express LLC — distribuidor mayorista B2B en el sur de Florida. Compra al por mayor, exento de impuesto para negocios, con entrega local. Presencia en Amazon y Walmart.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#171512;
+    --ink-2:#2c2823;
+    --paper:#f4efe4;
+    --paper-2:#ece5d6;
+    --cargo:#e2571e;      /* naranja carga */
+    --cargo-dk:#b8410f;
+    --amber:#f0a91d;
+    --line:#d8cfba;
+    --muted:#7a7161;
+    --ok:#2f7d48;
+    --maxw:1200px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Archivo',sans-serif;
+    font-size:17px;line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  /* textura blueprint sutil */
+  body::before{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;
+    background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+    background-size:44px 44px;
+    -webkit-mask-image:radial-gradient(circle at 50% 30%,#000 0%,transparent 78%);
+            mask-image:radial-gradient(circle at 50% 30%,#000 0%,transparent 78%);
+  }
+  /* grano */
+  body::after{
+    content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.035;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:1}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3{font-family:'Anton',sans-serif;font-weight:400;line-height:.96;letter-spacing:.01em;text-transform:uppercase}
+  .mono{font-family:'Space Mono',monospace}
+
+  /* ---------- HEADER ---------- */
+  header{position:sticky;top:0;z-index:50;background:rgba(244,239,228,.86);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{display:flex;align-items:center;gap:12px;font-family:'Anton';font-size:20px;text-transform:uppercase;letter-spacing:.02em}
+  .brand .mark{width:30px;height:30px;background:var(--ink);color:var(--cargo);display:grid;place-items:center;font-size:18px;transform:rotate(-6deg)}
+  .nav-links{display:flex;gap:26px;align-items:center;font-weight:600;font-size:14px;text-transform:uppercase;letter-spacing:.04em}
+  .nav-links a{opacity:.72;transition:opacity .2s}
+  .nav-links a:hover{opacity:1;color:var(--cargo-dk)}
+  .lang{display:flex;border:1.5px solid var(--ink);font-family:'Space Mono';font-size:12px;font-weight:700;overflow:hidden}
+  .lang button{background:none;border:0;padding:5px 9px;cursor:pointer;color:var(--ink)}
+  .lang button.on{background:var(--ink);color:var(--paper)}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--cargo);color:#fff;font-weight:700;padding:12px 20px;font-size:14px;text-transform:uppercase;letter-spacing:.05em;border:0;cursor:pointer;transition:transform .12s,background .2s;box-shadow:4px 4px 0 var(--ink)}
+  .btn:hover{background:var(--cargo-dk);transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+  .btn.ghost{background:none;color:var(--ink);box-shadow:none;border:1.5px solid var(--ink)}
+  .btn.ghost:hover{background:var(--ink);color:var(--paper)}
+  .menu-btn{display:none;background:none;border:0;font-size:26px;cursor:pointer}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;padding:70px 0 54px;overflow:hidden}
+  .kicker{font-family:'Space Mono';font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--cargo-dk);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+  .kicker::before{content:"";width:34px;height:2px;background:var(--cargo)}
+  .hero h1{font-size:clamp(46px,8.5vw,104px);max-width:15ch}
+  .hero h1 em{font-style:normal;color:var(--cargo);position:relative}
+  .hero p.lead{font-size:clamp(18px,2.2vw,22px);max-width:52ch;margin:26px 0 32px;color:var(--ink-2)}
+  .hero-cta{display:flex;gap:16px;flex-wrap:wrap}
+  .hero-figure{position:absolute;right:-40px;top:40px;width:min(42vw,480px);opacity:.9;pointer-events:none}
+  .crate{aspect-ratio:1;border:3px solid var(--ink);background:
+      repeating-linear-gradient(45deg,transparent 0 18px,rgba(226,87,30,.10) 18px 20px);
+    display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:3px;padding:3px;transform:rotate(4deg)}
+  .crate span{border:2px solid var(--ink);display:grid;place-items:center;font-family:'Anton';color:var(--ink)}
+
+  /* staggered load */
+  .reveal{opacity:0;transform:translateY(18px);animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+  [data-d="1"]{animation-delay:.05s}[data-d="2"]{animation-delay:.16s}[data-d="3"]{animation-delay:.28s}[data-d="4"]{animation-delay:.4s}
+
+  /* ---------- TICKER ---------- */
+  .ticker{background:var(--ink);color:var(--paper);overflow:hidden;border-top:3px solid var(--cargo);border-bottom:3px solid var(--cargo)}
+  .ticker-track{display:flex;gap:44px;white-space:nowrap;padding:12px 0;font-family:'Space Mono';font-size:13px;letter-spacing:.1em;text-transform:uppercase;animation:scroll 26s linear infinite;width:max-content}
+  .ticker-track span{display:flex;align-items:center;gap:44px}
+  .ticker-track b{color:var(--amber)}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* ---------- SECTIONS ---------- */
+  section{position:relative;padding:78px 0}
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:42px;flex-wrap:wrap}
+  .sec-head h2{font-size:clamp(30px,5vw,54px)}
+  .sec-num{font-family:'Space Mono';font-size:13px;color:var(--cargo-dk);letter-spacing:.1em}
+  .sec-sub{color:var(--muted);max-width:46ch;font-size:16px}
+
+  /* channels */
+  .chan{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .card{background:var(--paper-2);border:2px solid var(--ink);padding:34px 30px;position:relative;transition:transform .18s,box-shadow .18s}
+  .card:hover{transform:translateY(-4px);box-shadow:8px 8px 0 var(--cargo)}
+  .card .tag{font-family:'Space Mono';font-size:12px;letter-spacing:.1em;color:var(--cargo-dk);text-transform:uppercase}
+  .card h3{font-size:28px;margin:12px 0 12px}
+  .card ul{list-style:none;margin-top:16px}
+  .card li{padding:8px 0 8px 26px;position:relative;border-top:1px dashed var(--line);font-size:15.5px}
+  .card li::before{content:"→";position:absolute;left:0;color:var(--cargo);font-weight:700}
+
+  /* trust strip */
+  .trust{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:2px solid var(--ink);background:var(--paper-2)}
+  .trust div{padding:22px 16px;border-right:1px solid var(--line);text-align:center}
+  .trust div:last-child{border-right:0}
+  .trust .n{font-family:'Anton';font-size:26px;color:var(--cargo-dk);line-height:1}
+  .trust .l{font-family:'Space Mono';font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:8px;display:block}
+
+  /* catalog */
+  .cat-bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:26px}
+  .chip{font-family:'Space Mono';font-size:12px;text-transform:uppercase;letter-spacing:.06em;border:1.5px solid var(--ink);background:none;padding:7px 13px;cursor:pointer;transition:.15s}
+  .chip.on,.chip:hover{background:var(--ink);color:var(--paper)}
+  .margin-toggle{margin-left:auto;display:flex;align-items:center;gap:8px;font-family:'Space Mono';font-size:12px;text-transform:uppercase;color:var(--muted)}
+  .switch{width:42px;height:22px;background:var(--line);border:2px solid var(--ink);position:relative;cursor:pointer;flex:none}
+  .switch::after{content:"";position:absolute;top:1px;left:1px;width:14px;height:14px;background:var(--ink);transition:.18s}
+  .switch.on{background:var(--cargo)}
+  .switch.on::after{left:22px;background:#fff}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
+  .prod{background:#fff;border:2px solid var(--ink);display:flex;flex-direction:column;transition:transform .15s}
+  .prod:hover{transform:translateY(-3px);box-shadow:6px 6px 0 var(--ink)}
+  .prod .ph{aspect-ratio:16/10;background:
+      repeating-linear-gradient(135deg,var(--paper) 0 14px,var(--paper-2) 14px 28px);
+    border-bottom:2px solid var(--ink);display:grid;place-items:center;position:relative}
+  .prod .ph .sup{position:absolute;top:8px;left:8px;font-family:'Space Mono';font-size:10px;background:var(--ink);color:var(--paper);padding:3px 7px;letter-spacing:.06em}
+  .prod .ph .ic{font-size:40px;opacity:.5}
+  .prod .body{padding:16px 16px 18px;flex:1;display:flex;flex-direction:column}
+  .prod h4{font-family:'Archivo';font-weight:700;font-size:16px;line-height:1.25;text-transform:none}
+  .prod .sku{font-family:'Space Mono';font-size:11px;color:var(--muted);margin:6px 0 12px}
+  .prod .rowp{margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;border-top:1px dashed var(--line);padding-top:12px}
+  .prod .price{font-family:'Anton';font-size:24px}
+  .prod .price small{font-family:'Space Mono';font-size:11px;font-weight:400;color:var(--muted);display:block;text-transform:none}
+  .prod .margin{font-family:'Space Mono';font-size:12px;text-align:right;display:none}
+  .prod .margin b{color:var(--ok);font-size:15px}
+  .prod .margin .cost{color:var(--muted)}
+  body.show-margin .prod .margin{display:block}
+  .prod .status{font-family:'Space Mono';font-size:10px;text-transform:uppercase;letter-spacing:.05em;padding:4px 8px;align-self:flex-start;margin-bottom:10px}
+  .st-real{background:#e5f2e9;color:var(--ok);border:1px solid var(--ok)}
+  .st-soon{background:#f6ecd9;color:var(--cargo-dk);border:1px solid var(--amber)}
+
+  /* suppliers */
+  .sup-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+  .sup-card{border:2px solid var(--ink);padding:22px;background:var(--paper-2)}
+  .sup-card .st{font-family:'Space Mono';font-size:11px;text-transform:uppercase;letter-spacing:.05em}
+  .sup-card h4{font-family:'Anton';font-size:22px;margin:6px 0 4px;text-transform:uppercase}
+  .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:middle}
+  .dot.g{background:var(--ok)}.dot.y{background:var(--amber)}
+
+  /* quote form */
+  .quote{background:var(--ink);color:var(--paper);border-top:4px solid var(--cargo)}
+  .quote .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+  .quote h2{color:var(--paper);font-size:clamp(30px,5vw,52px)}
+  .quote .lead{color:#cbc3b3;margin:18px 0 26px;max-width:40ch}
+  .quote .contact-line{font-family:'Space Mono';font-size:14px;margin:10px 0;color:var(--amber)}
+  form{display:grid;gap:14px}
+  .f-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  label{font-family:'Space Mono';font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#a99f8c;display:block;margin-bottom:6px}
+  input,textarea,select{width:100%;background:#211d18;border:1.5px solid #3a342c;color:var(--paper);padding:12px 14px;font-family:'Archivo';font-size:15px}
+  input:focus,textarea:focus,select:focus{outline:none;border-color:var(--cargo)}
+  textarea{resize:vertical;min-height:96px}
+  .quote .btn{width:100%;justify-content:center;margin-top:6px}
+
+  /* footer */
+  footer{background:var(--paper-2);border-top:2px solid var(--ink);padding:44px 0 30px}
+  .foot{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-start}
+  .foot .legal{font-family:'Space Mono';font-size:12px;color:var(--muted);line-height:1.9;max-width:44ch}
+  .foot .legal b{color:var(--ink)}
+  .foot-brand{font-family:'Anton';font-size:22px;text-transform:uppercase}
+
+  @media(max-width:860px){
+    .nav-links{display:none}.menu-btn{display:block}
+    .chan,.quote .wrap{grid-template-columns:1fr}
+    .trust{grid-template-columns:repeat(2,1fr)}.trust div:nth-child(2){border-right:0}
+    .hero-figure{display:none}
+    .f-row{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top"><span class="mark">TM</span>Tu Mayorista Express</a>
+    <nav class="nav-links">
+      <a href="#modelo" data-es="Modelo" data-en="Model">Modelo</a>
+      <a href="#catalogo" data-es="Catálogo" data-en="Catalog">Catálogo</a>
+      <a href="#proveedores" data-es="Proveedores" data-en="Suppliers">Proveedores</a>
+      <a href="#cotizar" data-es="Cotizar" data-en="Get a quote">Cotizar</a>
+    </nav>
+    <div style="display:flex;gap:14px;align-items:center">
+      <div class="lang">
+        <button id="es" class="on" onclick="setLang('es')">ES</button>
+        <button id="en" onclick="setLang('en')">EN</button>
+      </div>
+      <a href="#cotizar" class="btn" data-es="Cotizar" data-en="Get a quote">Cotizar</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="kicker reveal" data-d="1"><span data-es="Distribución mayorista · Sur de Florida" data-en="Wholesale distribution · South Florida">Distribución mayorista · Sur de Florida</span></div>
+      <h1 class="reveal" data-d="2" data-es="Abastece tu negocio <em>al por mayor</em>, sin pagar de más." data-en="Stock your business <em>wholesale</em>, without overpaying.">Abastece tu negocio <em>al por mayor</em>, sin pagar de más.</h1>
+      <p class="lead reveal" data-d="3" data-es="Somos un distribuidor mayorista B2B en el sur de Florida. Compramos por volumen y exentos de impuesto, y te lo entregamos listo para operar — restaurantes, oficinas e instituciones. También presentes en Amazon y Walmart." data-en="A B2B wholesale distributor in South Florida. We buy by volume and tax-exempt, and deliver it ready to run — restaurants, offices and institutions. Also live on Amazon and Walmart.">Somos un distribuidor mayorista B2B en el sur de Florida. Compramos por volumen y exentos de impuesto, y te lo entregamos listo para operar — restaurantes, oficinas e instituciones. También presentes en Amazon y Walmart.</p>
+      <div class="hero-cta reveal" data-d="4">
+        <a href="#cotizar" class="btn" data-es="Pedir cotización" data-en="Request a quote">Pedir cotización</a>
+        <a href="#catalogo" class="btn ghost" data-es="Ver catálogo" data-en="View catalog">Ver catálogo</a>
+      </div>
+    </div>
+    <div class="hero-figure reveal" data-d="3" aria-hidden="true">
+      <div class="crate"><span>T</span><span>M</span><span>E</span><span>★</span></div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker">
+    <div class="ticker-track">
+      <span data-es="Exento de impuesto B2B · Entrega local sur de FL · Compra por volumen · Precio mayorista · " data-en="Tax-exempt B2B · Local South-FL delivery · Buy by volume · Wholesale pricing · ">
+        Exento de impuesto B2B · <b>Entrega local sur de FL</b> · Compra por volumen · <b>Precio mayorista</b> ·
+      </span>
+      <span data-es="Exento de impuesto B2B · Entrega local sur de FL · Compra por volumen · Precio mayorista · " data-en="Tax-exempt B2B · Local South-FL delivery · Buy by volume · Wholesale pricing · ">
+        Exento de impuesto B2B · <b>Entrega local sur de FL</b> · Compra por volumen · <b>Precio mayorista</b> ·
+      </span>
+    </div>
+  </div>
+
+  <!-- TRUST -->
+  <section style="padding:56px 0">
+    <div class="wrap">
+      <div class="trust">
+        <div><span class="n">2017</span><span class="l" data-es="LLC de Florida" data-en="Florida LLC">LLC de Florida</span></div>
+        <div><span class="n">S-Corp</span><span class="l" data-es="Clasificación IRS" data-en="IRS classification">Clasificación IRS</span></div>
+        <div><span class="n">EIN</span><span class="l" data-es="Registrado ante el IRS" data-en="IRS-registered">Registrado ante el IRS</span></div>
+        <div><span class="n">Resale</span><span class="l" data-es="Certificado de reventa FL" data-en="FL resale certificate">Certificado de reventa FL</span></div>
+        <div><span class="n">FL</span><span class="l">Doc L17000184073</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODELO / CANALES -->
+  <section id="modelo">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="sec-num">01 / <span data-es="Cómo trabajamos" data-en="How we work">Cómo trabajamos</span></div>
+          <h2 data-es="Dos formas de comprarnos" data-en="Two ways to buy from us">Dos formas de comprarnos</h2>
+        </div>
+        <p class="sec-sub" data-es="Mismo inventario mayorista, dos canales. Elige el que le sirve a tu negocio." data-en="Same wholesale inventory, two channels. Pick the one that fits your business.">Mismo inventario mayorista, dos canales. Elige el que le sirve a tu negocio.</p>
+      </div>
+      <div class="chan">
+        <div class="card">
+          <span class="tag">01 · B2B</span>
+          <h3 data-es="Mayoreo directo" data-en="Direct wholesale">Mayoreo directo</h3>
+          <p data-es="Le vendemos directo a tu negocio, con precio de volumen y exento de impuesto de reventa. Pensado para quien compra recurrente." data-en="We sell straight to your business, at volume pricing and resale tax-exempt. Built for recurring buyers.">Le vendemos directo a tu negocio, con precio de volumen y exento de impuesto de reventa. Pensado para quien compra recurrente.</p>
+          <ul>
+            <li data-es="Restaurantes, food trucks y cocinas" data-en="Restaurants, food trucks & kitchens">Restaurantes, food trucks y cocinas</li>
+            <li data-es="Oficinas, limpieza e instituciones" data-en="Offices, janitorial & institutions">Oficinas, limpieza e instituciones</li>
+            <li data-es="Entrega local en el sur de Florida" data-en="Local delivery in South Florida">Entrega local en el sur de Florida</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="tag">02 · Marketplaces</span>
+          <h3 data-es="Amazon & Walmart" data-en="Amazon & Walmart">Amazon &amp; Walmart</h3>
+          <p data-es="Para compradores fuera del área, listamos parte del catálogo en marketplaces con envío nacional y respaldo de una empresa registrada." data-en="For out-of-area buyers, we list part of the catalog on marketplaces with national shipping and the backing of a registered company.">Para compradores fuera del área, listamos parte del catálogo en marketplaces con envío nacional y respaldo de una empresa registrada.</p>
+          <ul>
+            <li data-es="Envío nacional vía marketplace" data-en="National shipping via marketplace">Envío nacional vía marketplace</li>
+            <li data-es="Vendedor registrado y verificado" data-en="Registered, verified seller">Vendedor registrado y verificado</li>
+            <li data-es="Mismo precio mayorista de fondo" data-en="Same underlying wholesale price">Mismo precio mayorista de fondo</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATALOGO -->
+  <section id="catalogo" style="background:var(--paper-2);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="sec-num">02 / <span data-es="Catálogo" data-en="Catalog">Catálogo</span></div>
+          <h2 data-es="Productos en incorporación" data-en="Catalog in progress">Productos en incorporación</h2>
+        </div>
+        <p class="sec-sub" data-es="Precios de costo reales de proveedores aprobados. El precio B2B es sugerido sobre costo; el margen es interno. Ampliando catálogo." data-en="Real cost prices from approved suppliers. B2B price is suggested over cost; margin is internal. Catalog expanding.">Precios de costo reales de proveedores aprobados. El precio B2B es sugerido sobre costo; el margen es interno. Ampliando catálogo.</p>
+      </div>
+
+      <div class="cat-bar">
+        <button class="chip on" data-f="all" data-es="Todos" data-en="All">Todos</button>
+        <button class="chip" data-f="Empaque" data-es="Empaque" data-en="Packaging">Empaque</button>
+        <button class="chip" data-f="Limpieza" data-es="Limpieza" data-en="Janitorial">Limpieza</button>
+        <button class="chip" data-f="Cocina" data-es="Cocina" data-en="Kitchen">Cocina</button>
+        <button class="chip" data-f="Cuidado" data-es="Cuidado personal" data-en="Personal care">Cuidado personal</button>
+        <div class="margin-toggle">
+          <span data-es="Ver margen (interno)" data-en="Show margin (internal)">Ver margen (interno)</span>
+          <div class="switch" id="marginSwitch" onclick="toggleMargin()"></div>
+        </div>
+      </div>
+
+      <div class="grid" id="catGrid"></div>
+      <p class="mono" style="margin-top:22px;font-size:12px;color:var(--muted)" data-es="* Costos reales de DollarDays (cuenta aprobada, exenta de impuesto). Precio B2B = sugerido sobre costo, editable. Uline y otros proveedores en incorporación." data-en="* Real DollarDays costs (approved, tax-exempt account). B2B price = suggested over cost, editable. Uline and other suppliers being onboarded.">* Costos reales de DollarDays (cuenta aprobada, exenta de impuesto). Precio B2B = sugerido sobre costo, editable. Uline y otros proveedores en incorporación.</p>
+    </div>
+  </section>
+
+  <!-- PROVEEDORES -->
+  <section id="proveedores">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="sec-num">03 / <span data-es="Red de proveedores" data-en="Supplier network">Red de proveedores</span></div>
+          <h2 data-es="De dónde compramos" data-en="Where we source">De dónde compramos</h2>
+        </div>
+        <p class="sec-sub" data-es="Cuentas mayoristas verificadas a nombre de la empresa. Transparencia de origen." data-en="Verified wholesale accounts under the company. Sourcing transparency.">Cuentas mayoristas verificadas a nombre de la empresa. Transparencia de origen.</p>
+      </div>
+      <div class="sup-grid">
+        <div class="sup-card">
+          <span class="st"><span class="dot g"></span><span data-es="Activo · exento" data-en="Active · tax-exempt">Activo · exento</span></span>
+          <h4>DollarDays</h4>
+          <p class="mono" style="font-size:12px;color:var(--muted)" data-es="Merchandise general y granel. Cuenta aprobada y codificada exenta." data-en="General merch & bulk. Account approved, tax-exempt coded.">Merchandise general y granel. Cuenta aprobada y codificada exenta.</p>
+        </div>
+        <div class="sup-card">
+          <span class="st"><span class="dot g"></span><span data-es="Activo" data-en="Active">Activo</span></span>
+          <h4>Uline</h4>
+          <p class="mono" style="font-size:12px;color:var(--muted)">Cust #36249292 · <span data-es="empaque, envío, industrial, limpieza." data-en="packaging, shipping, industrial, janitorial.">empaque, envío, industrial, limpieza.</span></p>
+        </div>
+        <div class="sup-card">
+          <span class="st"><span class="dot y"></span><span data-es="En revisión" data-en="In review">En revisión</span></span>
+          <h4>BOSS PetEdge</h4>
+          <p class="mono" style="font-size:12px;color:var(--muted)" data-es="Suministros para mascotas. Solicitud enviada." data-en="Pet supplies. Application submitted.">Suministros para mascotas. Solicitud enviada.</p>
+        </div>
+        <div class="sup-card">
+          <span class="st"><span class="dot y"></span><span data-es="Ampliando" data-en="Expanding">Ampliando</span></span>
+          <h4 data-es="Más proveedores" data-en="More suppliers">Más proveedores</h4>
+          <p class="mono" style="font-size:12px;color:var(--muted)" data-es="Evaluando nuevas cuentas mayoristas por categoría." data-en="Evaluating new wholesale accounts by category.">Evaluando nuevas cuentas mayoristas por categoría.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COTIZAR -->
+  <section id="cotizar" class="quote">
+    <div class="wrap">
+      <div>
+        <div class="sec-num" style="color:var(--amber)">04 / <span data-es="Hablemos" data-en="Let's talk">Hablemos</span></div>
+        <h2 data-es="Pide tu cotización" data-en="Request your quote">Pide tu cotización</h2>
+        <p class="lead" data-es="Cuéntanos qué compras y cada cuánto. Te armamos precio de volumen para tu negocio." data-en="Tell us what you buy and how often. We'll build volume pricing for your business.">Cuéntanos qué compras y cada cuánto. Te armamos precio de volumen para tu negocio.</p>
+        <div class="contact-line">✉ tumayoristaexpress.llc@gmail.com</div>
+        <div class="contact-line" data-es="◎ Sur de Florida · Wellington, FL" data-en="◎ South Florida · Wellington, FL">◎ Sur de Florida · Wellington, FL</div>
+        <div class="contact-line mono" style="color:#a99f8c">TU MAYORISTA EXPRESS LLC · EST. 2017</div>
+      </div>
+      <form id="quoteForm" onsubmit="return sendQuote(event)">
+        <div class="f-row">
+          <div><label data-es="Tu nombre" data-en="Your name">Tu nombre</label><input name="nombre" required></div>
+          <div><label data-es="Negocio" data-en="Business">Negocio</label><input name="negocio"></div>
+        </div>
+        <div class="f-row">
+          <div><label>Email</label><input type="email" name="email" required></div>
+          <div><label data-es="Teléfono" data-en="Phone">Teléfono</label><input name="telefono"></div>
+        </div>
+        <div>
+          <label data-es="¿Qué necesitas comprar?" data-en="What do you need to buy?">¿Qué necesitas comprar?</label>
+          <textarea name="detalle" placeholder="Ej: bolsas zip, toallas, insumos de limpieza..." required></textarea>
+        </div>
+        <button class="btn" type="submit" data-es="Enviar solicitud" data-en="Send request">Enviar solicitud</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <div class="foot-brand"><span class="mark" style="display:inline-grid;width:26px;height:26px;background:var(--ink);color:var(--cargo);place-items:center;vertical-align:middle">TM</span> Tu Mayorista Express</div>
+      <p class="legal" style="margin-top:14px">
+        <b>TU MAYORISTA EXPRESS LLC</b><br>
+        <span data-es="LLC de Florida · clasificación S-Corp (IRS)" data-en="Florida LLC · S-Corp classification (IRS)">LLC de Florida · clasificación S-Corp (IRS)</span><br>
+        Doc L17000184073 · <span data-es="constituida 2017" data-en="formed 2017">constituida 2017</span><br>
+        Wellington, FL · <span data-es="Estados Unidos" data-en="United States">Estados Unidos</span>
+      </p>
+    </div>
+    <div class="legal">
+      <b data-es="Contacto" data-en="Contact">Contacto</b><br>
+      tumayoristaexpress.llc@gmail.com<br><br>
+      <span data-es="© 2026 Tu Mayorista Express LLC. Todos los derechos reservados." data-en="© 2026 Tu Mayorista Express LLC. All rights reserved.">© 2026 Tu Mayorista Express LLC. Todos los derechos reservados.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ---------- CATÁLOGO (datos reales + muestras marcadas) ---------- */
+// cost = costo unitario REAL de proveedor. b2b = precio sugerido (editable). Margen = b2b - cost.
+const PRODUCTS = [
+  {sku:"DD-ZIP1G-1000", name:"Bolsas zip 1 galón (caja 1,000)", cat:"Empaque", sup:"DollarDays", unit:"$/unidad", cost:0.10, b2b:0.18, ic:"▨", real:true},
+  {sku:"UL-BOX-S", name:"Cajas de envío corrugadas (surtido)", cat:"Empaque", sup:"Uline", unit:"$/unidad", cost:null, b2b:null, ic:"▤", real:false},
+  {sku:"DD-WIPE-CS", name:"Toallitas de limpieza a granel", cat:"Limpieza", sup:"DollarDays", unit:"$/unidad", cost:null, b2b:null, ic:"❖", real:false},
+  {sku:"UL-GLOVE-NIT", name:"Guantes de nitrilo (caja 100)", cat:"Limpieza", sup:"Uline", unit:"$/caja", cost:null, b2b:null, ic:"✦", real:false},
+  {sku:"DD-FOIL-RL", name:"Papel aluminio institucional", cat:"Cocina", sup:"DollarDays", unit:"$/rollo", cost:null, b2b:null, ic:"▧", real:false},
+  {sku:"DD-CUP-16", name:"Vasos desechables 16oz (paquete)", cat:"Cocina", sup:"DollarDays", unit:"$/paquete", cost:null, b2b:null, ic:"◍", real:false},
+  {sku:"DD-SOAP-BULK", name:"Jabón de manos a granel", cat:"Cuidado", sup:"DollarDays", unit:"$/unidad", cost:null, b2b:null, ic:"◐", real:false},
+  {sku:"DD-TOWEL-PPR", name:"Toallas de papel institucionales", cat:"Limpieza", sup:"DollarDays", unit:"$/rollo", cost:null, b2b:null, ic:"▥", real:false},
+];
+
+const grid=document.getElementById('catGrid');
+let filter='all';
+function money(v){return v==null?'—':'$'+v.toFixed(2)}
+function renderCat(){
+  grid.innerHTML='';
+  PRODUCTS.filter(p=>filter==='all'||p.cat===filter).forEach(p=>{
+    const marginPct = (p.cost&&p.b2b)? Math.round((p.b2b-p.cost)/p.b2b*100):null;
+    const el=document.createElement('div');
+    el.className='prod';
+    el.innerHTML=`
+      <div class="ph"><span class="sup">${p.sup}</span><span class="ic">${p.ic}</span></div>
+      <div class="body">
+        <span class="status ${p.real?'st-real':'st-soon'}">${p.real?(LANG==='es'?'Costo real':'Real cost'):(LANG==='es'?'Poblando':'Loading')}</span>
+        <h4>${p.name}</h4>
+        <div class="sku">${p.sku}</div>
+        <div class="rowp">
+          <div class="price">${p.b2b!=null?money(p.b2b):'—'}<small>${p.unit} · B2B</small></div>
+          <div class="margin">
+            <span class="cost">${LANG==='es'?'costo':'cost'} ${money(p.cost)}</span><br>
+            ${marginPct!=null?`<b>+${marginPct}%</b>`:'<b style="color:var(--muted)">—</b>'}
+          </div>
+        </div>
+      </div>`;
+    grid.appendChild(el);
+  });
+}
+document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{
+  document.querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));
+  c.classList.add('on');filter=c.dataset.f;renderCat();
+}));
+function toggleMargin(){
+  document.body.classList.toggle('show-margin');
+  document.getElementById('marginSwitch').classList.toggle('on');
+}
+
+/* ---------- IDIOMA ---------- */
+let LANG='es';
+function setLang(l){
+  LANG=l;document.documentElement.lang=l;
+  document.getElementById('es').classList.toggle('on',l==='es');
+  document.getElementById('en').classList.toggle('on',l==='en');
+  document.querySelectorAll('[data-es]').forEach(el=>{
+    const v=el.getAttribute('data-'+l); if(v!=null) el.innerHTML=v;
+  });
+  renderCat();
+}
+
+/* ---------- COTIZACIÓN (mailto por ahora; backend luego) ---------- */
+function sendQuote(e){
+  e.preventDefault();
+  const f=e.target;
+  const body=`Nombre: ${f.nombre.value}%0D%0ANegocio: ${f.negocio.value}%0D%0AEmail: ${f.email.value}%0D%0ATelefono: ${f.telefono.value}%0D%0A%0D%0ANecesita:%0D%0A${encodeURIComponent(f.detalle.value)}`;
+  window.location.href=`mailto:tumayoristaexpress.llc@gmail.com?subject=Cotizacion%20-%20${encodeURIComponent(f.negocio.value||f.nombre.value)}&body=${body}`;
+  return false;
+}
+
+/* ---------- SCROLL REVEAL ---------- */
+// Reveal como MEJORA, no como ocultamiento: el contenido es visible por defecto;
+// si el navegador soporta IO, animamos suavemente al entrar en viewport.
+if('IntersectionObserver' in window){
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{
+    if(e.isIntersecting){e.target.style.animation='rise .7s cubic-bezier(.2,.7,.2,1) forwards';io.unobserve(e.target)}
+  }),{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('section .card,.sup-card,.trust,.prod').forEach(el=>io.observe(el));
+}
+
+renderCat();
+</script>
+</body>
+</html>
