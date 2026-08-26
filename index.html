@@ -180,6 +180,18 @@
   .foot .legal b{color:var(--ink)}
   .foot-brand{font-family:'Anton';font-size:22px;text-transform:uppercase}
 
+  .aff{background:var(--paper-2);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+  .aff-disc{font-family:'Space Mono';font-size:12px;color:var(--muted);border:1.5px dashed var(--ink);padding:12px 16px;margin-bottom:26px}
+  .aff-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px}
+  .aff-card{background:#fff;border:2px solid var(--ink);display:flex;flex-direction:column;transition:transform .15s}
+  .aff-card:hover{transform:translateY(-3px);box-shadow:6px 6px 0 var(--ink)}
+  .aff-card .im{aspect-ratio:1;border-bottom:2px solid var(--ink);display:grid;place-items:center;padding:14px;background:#fff}
+  .aff-card .im img{max-width:100%;max-height:100%;object-fit:contain}
+  .aff-card .b{padding:14px;flex:1;display:flex;flex-direction:column}
+  .aff-card h4{font-family:'Archivo';font-weight:700;font-size:14.5px;line-height:1.3;text-transform:none}
+  .aff-card .amz{margin-top:auto;padding-top:12px}
+  .aff-card .amz a{display:block;text-align:center;background:var(--cargo);color:var(--ink);font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.04em;padding:10px;border:2px solid var(--ink);transition:.15s}
+  .aff-card .amz a:hover{background:var(--ink);color:#fff}
   @media(max-width:860px){
     .nav-links{display:none}.menu-btn{display:block}
     .chan,.quote .wrap{grid-template-columns:1fr}
@@ -197,6 +209,7 @@
     <nav class="nav-links">
       <a href="#modelo" data-es="Modelo" data-en="Model">Modelo</a>
       <a href="#catalogo" data-es="Catálogo" data-en="Catalog">Catálogo</a>
+      <a href="#recomendados" data-es="Recomendados" data-en="Recommended">Recomendados</a>
       <a href="#proveedores" data-es="Proveedores" data-en="Suppliers">Proveedores</a>
       <a href="#cotizar" data-es="Cotizar" data-en="Get a quote">Cotizar</a>
     </nav>
@@ -319,6 +332,56 @@
 
       <div class="grid" id="catGrid"></div>
       <p class="mono" style="margin-top:22px;font-size:12px;color:var(--muted)" data-es="* Costos reales de DollarDays (cuenta aprobada, exenta de impuesto). Precio B2B = sugerido sobre costo, editable. Uline y otros proveedores en incorporación." data-en="* Real DollarDays costs (approved, tax-exempt account). B2B price = suggested over cost, editable. Uline and other suppliers being onboarded.">* Costos reales de DollarDays (cuenta aprobada, exenta de impuesto). Precio B2B = sugerido sobre costo, editable. Uline y otros proveedores en incorporación.</p>
+    </div>
+  </section>
+
+  <!-- RECOMENDADOS (afiliados) -->
+  <section id="recomendados" class="aff">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="sec-num">Amazon / <span data-es="Recomendados" data-en="Recommended">Recomendados</span></div>
+          <h2 data-es="Equipos recomendados en Amazon" data-en="Recommended equipment on Amazon">Equipos recomendados en Amazon</h2></div>
+        <p class="sec-sub" data-es="Productos útiles para tu negocio, disponibles en Amazon." data-en="Useful products for your business, available on Amazon.">Productos útiles para tu negocio, disponibles en Amazon.</p>
+      </div>
+      <div class="aff-disc" data-es="Divulgación: Como Afiliado de Amazon, Tu Mayorista Express gana por compras que califican — sin costo extra para ti." data-en="Disclosure: As an Amazon Associate, Tu Mayorista Express earns from qualifying purchases — at no extra cost to you.">Divulgación: Como Afiliado de Amazon, Tu Mayorista Express gana por compras que califican — sin costo extra para ti.</div>
+      <div class="aff-grid">
+        <div class="aff-card">
+          <div class="im"><img src="https://m.media-amazon.com/images/I/71k3cUPVgML._AC_UL320_.jpg" loading="lazy" alt="Contenedores de comida 8 Qt (4 pack, grado NSF)"></div>
+          <div class="b"><h4>Contenedores de comida 8 Qt (4 pack, grado NSF)</h4>
+            <div class="amz"><a href="https://www.amazon.com/dp/B0CMT8RGJV?tag=tumayorista78-20" target="_blank" rel="nofollow sponsored noopener" data-es="Ver en Amazon →" data-en="View on Amazon →">Ver en Amazon →</a></div>
+          </div>
+        </div>
+        <div class="aff-card">
+          <div class="im"><img src="https://m.media-amazon.com/images/I/71xyErChetL._AC_UY218_.jpg" loading="lazy" alt="Guantes de nitrilo desechables (caja)"></div>
+          <div class="b"><h4>Guantes de nitrilo desechables (caja)</h4>
+            <div class="amz"><a href="https://www.amazon.com/dp/B0B69PSRQ7?tag=tumayorista78-20" target="_blank" rel="nofollow sponsored noopener" data-es="Ver en Amazon →" data-en="View on Amazon →">Ver en Amazon →</a></div>
+          </div>
+        </div>
+        <div class="aff-card">
+          <div class="im"><img src="https://m.media-amazon.com/images/I/71X0gyxECDL._AC_UY218_.jpg" loading="lazy" alt="Rotuladora de etiquetas (Label Maker)"></div>
+          <div class="b"><h4>Rotuladora de etiquetas (Label Maker)</h4>
+            <div class="amz"><a href="https://www.amazon.com/dp/B0DKS89T75?tag=tumayorista78-20" target="_blank" rel="nofollow sponsored noopener" data-es="Ver en Amazon →" data-en="View on Amazon →">Ver en Amazon →</a></div>
+          </div>
+        </div>
+        <div class="aff-card">
+          <div class="im"><img src="https://m.media-amazon.com/images/I/91WjG1lqmLL._AC_UL320_.jpg" loading="lazy" alt="Paños de microfibra multiusos"></div>
+          <div class="b"><h4>Paños de microfibra multiusos</h4>
+            <div class="amz"><a href="https://www.amazon.com/dp/B009FUF6DM?tag=tumayorista78-20" target="_blank" rel="nofollow sponsored noopener" data-es="Ver en Amazon →" data-en="View on Amazon →">Ver en Amazon →</a></div>
+          </div>
+        </div>
+        <div class="aff-card">
+          <div class="im"><img src="https://m.media-amazon.com/images/I/61MCnisGfwL._AC_UL320_.jpg" loading="lazy" alt="Bolsas de basura 13 gal (cocina)"></div>
+          <div class="b"><h4>Bolsas de basura 13 gal (cocina)</h4>
+            <div class="amz"><a href="https://www.amazon.com/dp/B092VPGJB9?tag=tumayorista78-20" target="_blank" rel="nofollow sponsored noopener" data-es="Ver en Amazon →" data-en="View on Amazon →">Ver en Amazon →</a></div>
+          </div>
+        </div>
+        <div class="aff-card">
+          <div class="im"><img src="https://m.media-amazon.com/images/I/71TD1OkCLPL._AC_UL320_.jpg" loading="lazy" alt="Jabón de manos líquido (recarga)"></div>
+          <div class="b"><h4>Jabón de manos líquido (recarga)</h4>
+            <div class="amz"><a href="https://www.amazon.com/dp/B09HHDGQKD?tag=tumayorista78-20" target="_blank" rel="nofollow sponsored noopener" data-es="Ver en Amazon →" data-en="View on Amazon →">Ver en Amazon →</a></div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
