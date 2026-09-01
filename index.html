@@ -210,7 +210,6 @@
       <a href="#modelo" data-es="Modelo" data-en="Model">Modelo</a>
       <a href="#catalogo" data-es="Catálogo" data-en="Catalog">Catálogo</a>
       <a href="#recomendados" data-es="Recomendados" data-en="Recommended">Recomendados</a>
-      <a href="#proveedores" data-es="Proveedores" data-en="Suppliers">Proveedores</a>
       <a href="#cotizar" data-es="Cotizar" data-en="Get a quote">Cotizar</a>
     </nav>
     <div style="display:flex;gap:14px;align-items:center">
@@ -328,7 +327,7 @@
 
       <div style="margin:6px 0 20px"><a href="catalogo.html" style="display:inline-block;background:var(--cargo);color:var(--ink);font-weight:800;padding:14px 26px;border-radius:10px;text-decoration:none;font-size:16px">Ver catálogo completo — 67 productos &rarr;</a></div>
       <div class="grid" id="catGrid"></div>
-      <p class="mono" style="margin-top:22px;font-size:12px;color:var(--muted)" data-es="* Proveedores aprobados y exentos de impuesto. Catálogo en expansión (Uline y otros en incorporación)." data-en="* Approved, tax-exempt suppliers. Catalog expanding (Uline and others onboarding).">* Proveedores aprobados y exentos de impuesto. Catálogo en expansión (Uline y otros en incorporación).</p>
+      <p class="mono" style="margin-top:22px;font-size:12px;color:var(--muted)" data-es="* Proveedores aprobados y exentos de impuesto. Catálogo en expansión." data-en="* Approved, tax-exempt suppliers. Catalog expanding.">* Proveedores aprobados y exentos de impuesto. Catálogo en expansión.</p>
     </div>
   </section>
 
@@ -383,44 +382,6 @@
   </section>
 
   <!-- PROVEEDORES -->
-  <section id="proveedores">
-    <div class="wrap">
-      <div class="sec-head">
-        <div>
-          <div class="sec-num">03 / <span data-es="Red de proveedores" data-en="Supplier network">Red de proveedores</span></div>
-          <h2 data-es="De dónde compramos" data-en="Where we source">De dónde compramos</h2>
-        </div>
-        <p class="sec-sub" data-es="Cuentas mayoristas verificadas a nombre de la empresa. Transparencia de origen." data-en="Verified wholesale accounts under the company. Sourcing transparency.">Cuentas mayoristas verificadas a nombre de la empresa. Transparencia de origen.</p>
-      </div>
-      <div class="sup-grid">
-        <div class="sup-card">
-          <span class="st"><span class="dot g"></span><span data-es="Activo · exento" data-en="Active · tax-exempt">Activo · exento</span></span>
-          <h4>DollarDays</h4>
-          <p class="mono" style="font-size:12px;color:var(--muted)" data-es="Merchandise general y granel. Cuenta aprobada y codificada exenta." data-en="General merch & bulk. Account approved, tax-exempt coded.">Merchandise general y granel. Cuenta aprobada y codificada exenta.</p>
-        </div>
-        <div class="sup-card">
-          <span class="st"><span class="dot g"></span><span data-es="Activo" data-en="Active">Activo</span></span>
-          <h4>Uline</h4>
-          <p class="mono" style="font-size:12px;color:var(--muted)"><span data-es="Empaque, envío, industrial y limpieza. Cuenta mayorista activa." data-en="Packaging, shipping, industrial & janitorial. Active wholesale account.">Empaque, envío, industrial y limpieza. Cuenta mayorista activa.</span></p>
-        </div>
-        <div class="sup-card">
-          <span class="st"><span class="dot y"></span><span data-es="En revisión" data-en="In review">En revisión</span></span>
-          <h4>BOSS PetEdge</h4>
-          <p class="mono" style="font-size:12px;color:var(--muted)" data-es="Suministros para mascotas. Solicitud enviada." data-en="Pet supplies. Application submitted.">Suministros para mascotas. Solicitud enviada.</p>
-        </div>
-        <div class="sup-card">
-          <span class="st"><span class="dot g"></span><span data-es="Activo · más barato" data-en="Active · lower cost">Activo · más barato</span></span>
-          <h4>Kole Imports</h4>
-          <p class="mono" style="font-size:12px;color:var(--muted)"><span data-es="Closeout general: hogar, cocina, limpieza, juguetería. MOQ $250." data-en="General closeout: home, kitchen, cleaning, toys. $250 MOQ.">Closeout general: hogar, cocina, limpieza, juguetería. MOQ $250.</span></p>
-        </div>
-        <div class="sup-card">
-          <span class="st"><span class="dot y"></span><span data-es="Ampliando" data-en="Expanding">Ampliando</span></span>
-          <h4 data-es="Más proveedores" data-en="More suppliers">Más proveedores</h4>
-          <p class="mono" style="font-size:12px;color:var(--muted)" data-es="Evaluando nuevas cuentas mayoristas por categoría." data-en="Evaluating new wholesale accounts by category.">Evaluando nuevas cuentas mayoristas por categoría.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- COTIZAR -->
   <section id="cotizar" class="quote">
@@ -474,85 +435,7 @@
 </footer>
 
 <script>
-/* ---------- CATÁLOGO (datos reales + muestras marcadas) ---------- */
-// cost = costo unitario REAL de proveedor. b2b = precio sugerido (editable). Margen = b2b - cost.
-// Costos REALES de DollarDays (cuenta exenta, leídos 2026-08-24). SKU = ID DollarDays.
-// b2b = precio de reventa sugerido sobre costo (editable). margen = b2b - cost.
-const PRODUCTS = [
-  {sku:"DD-i312971", name:"Pañuelos de bolsillo 2 capas, 15ct", cat:"Cuidado", sup:"DollarDays", unit:"$/unidad", cost:0.31, b2b:0.49, img:"https://dollardays.imgix.net/images/n25/image2/tis15.jpg", ic:"◐", real:true},
-  {sku:"DD-i2382046", name:"Pañuelos faciales 2 capas, 40/caja", cat:"Cuidado", sup:"DollarDays", unit:"$/unidad", cost:0.44, b2b:0.69, img:"https://dollardays.imgix.net/images/d89/image2/012325042509650.jpg", ic:"◑", real:true},
-  {sku:"DD-i2366268", name:"Pañuelos faciales de bolsillo, 25 hojas", cat:"Cuidado", sup:"DollarDays", unit:"$/unidad", cost:0.58, b2b:0.89, img:"https://dollardays.imgix.net/images/m91/image2/032224015851997.jpg", ic:"◒", real:true},
-  {sku:"DD-i46709", name:"Cepillo de baño con base, blanco 15\"", cat:"Limpieza", sup:"DollarDays", unit:"$/unidad", cost:2.63, b2b:3.79, img:"https://dollardays.imgix.net/images/c52/image2/21020.jpg", ic:"❖", real:true},
-  {sku:"DD-i2381283", name:"Cápsulas de detergente, Fresh, 10pk", cat:"Limpieza", sup:"DollarDays", unit:"$/paquete", cost:2.19, b2b:3.19, img:"https://dollardays.imgix.net/images/r56/image2/121624011939127.jpg", ic:"✦", real:true},
-  {sku:"DD-i2386451", name:"Toallas de papel, 30 pack", cat:"Limpieza", sup:"DollarDays", unit:"$/paquete", cost:2.26, b2b:3.29, img:"https://dollardays.imgix.net/images/r56/image2/062725103141245.jpg", ic:"▥", real:true},
-  {sku:"DD-ZIP1G", name:"Bolsas zip 1 galón (caja 1,000)", cat:"Empaque", sup:"DollarDays", unit:"$/unidad", cost:0.10, b2b:0.18, img:"https://dollardays.imgix.net/images/h89/image2/100224015854619.png", ic:"▨", real:true},
-  {sku:"DD-i2393032", name:"Bolsas de basura 60 gal, heavy duty (caja)", cat:"Empaque", sup:"DollarDays", unit:"$/caja", cost:64.29, b2b:89.99, img:"https://dollardays.imgix.net/images/s283/image2/060326022552229.jpg", ic:"▤", real:true},
-  {sku:"DD-i2316305", name:"Vasos plásticos 16oz, surtidos, 4 pack", cat:"Cocina", sup:"DollarDays", unit:"$/paquete", cost:1.50, b2b:2.29, img:"https://dollardays.imgix.net/images/c233/image2/ch91064.jpg", ic:"◍", real:true},
-  {sku:"DD-i2362977", name:"Vasos plásticos 20oz", cat:"Cocina", sup:"DollarDays", unit:"$/unidad", cost:1.35, b2b:1.99, img:"https://dollardays.imgix.net/images/m124/image2/50-6639g.jpg", ic:"◌", real:true},
-  {sku:"DD-i2287798", name:"Mug de viaje 16.5oz", cat:"Cocina", sup:"DollarDays", unit:"$/unidad", cost:4.07, b2b:5.99, img:"https://dollardays.imgix.net/images/c52/image2/40031.jpg", ic:"▧", real:true},
-  {sku:"DD-i2353470", name:"Termo al vacío 16oz", cat:"Cocina", sup:"DollarDays", unit:"$/unidad", cost:9.39, b2b:12.99, img:"https://dollardays.imgix.net/images/b173/image2/fts-505s.jpg", ic:"◎", real:true},
-  {sku:"DD-i572416", name:"Guantes de lona blancos, 8oz", cat:"Limpieza", sup:"DollarDays", unit:"$/par", cost:0.73, b2b:1.09, img:"https://dollardays.imgix.net/images/m124/image2/60-1680.jpg", ic:"✥", real:true},
-  {sku:"DD-i635297", name:"Guantes de cuero de trabajo, L", cat:"Limpieza", sup:"DollarDays", unit:"$/par", cost:2.29, b2b:3.29, img:"https://dollardays.imgix.net/images/m124/image2/30-0888-1.jpg", ic:"✧", real:true},
-  {sku:"DD-i1797770", name:"Guantes mecánico piel de cabra, L", cat:"Limpieza", sup:"DollarDays", unit:"$/par", cost:7.39, b2b:9.99, img:"https://dollardays.imgix.net/images/m124/image2/33-8001.jpg", ic:"✦", real:true},
-  {sku:"DD-i2346949", name:"Bolsas de almacenamiento XL, 2pk heavy duty", cat:"Empaque", sup:"DollarDays", unit:"$/paquete", cost:2.18, b2b:3.19, img:"https://dollardays.imgix.net/images/r56/image2/112223032431547.png", ic:"▦", real:true},
-  {sku:"DD-i2381999", name:"Caja de almacenamiento Sterilite 66qt", cat:"Empaque", sup:"DollarDays", unit:"$/unidad", cost:16.67, b2b:22.99, img:"https://dollardays.imgix.net/images/f120/image2/012125090243693.png", ic:"▣", real:true},
-  {sku:"DD-i2385562", name:"Set contenedores de comida, 16 piezas", cat:"Cocina", sup:"DollarDays", unit:"$/set", cost:12.46, b2b:16.99, img:"https://dollardays.imgix.net/images/r56/image2/051525041032224.jpg", ic:"▨", real:true},
-  {sku:"DD-i411379", name:"Vasos de papel 5oz desechables (caja)", cat:"Cocina", sup:"DollarDays", unit:"$/caja", cost:10.29, b2b:13.99, img:"https://dollardays.imgix.net/images/m91/image2/non05005.jpg", ic:"◍", real:true},
-  {sku:"DD-i1982920", name:"Pajillas surtidas, 100 count", cat:"Cocina", sup:"DollarDays", unit:"$/paquete", cost:2.50, b2b:3.49, img:"https://dollardays.imgix.net/images/d132/image2/flxbndstrw.jpg", ic:"◈", real:true},
-  {sku:"DD-i2316166", name:"Set de cuchillos de cocina inox, 2pk", cat:"Cocina", sup:"DollarDays", unit:"$/set", cost:1.70, b2b:2.49, img:"https://dollardays.imgix.net/images/c233/image2/ch80448.jpg", ic:"◆", real:true},
-  {sku:"DD-i2373472", name:"Cobijas de forro polar 50x60, surtidas", cat:"Cama", sup:"DollarDays", unit:"$/unidad", cost:3.99, b2b:5.99, img:"https://dollardays.imgix.net/images/d151/image2/010925025552322.png", ic:"▩", real:true},
-  {sku:"DD-i2387891", name:"Cobija sherpa de franela 50x60", cat:"Cama", sup:"DollarDays", unit:"$/unidad", cost:9.99, b2b:13.99, img:"https://dollardays.imgix.net/images/d151/image2/092225085353267.jpg", ic:"▦", real:true},
-  {sku:"DD-i2374885", name:"Juego de sábanas microfibra, Full (2pz)", cat:"Cama", sup:"DollarDays", unit:"$/juego", cost:14.95, b2b:19.99, img:"https://dollardays.imgix.net/images/d151/image2/060625110319192.jpg", ic:"▧", real:true},
-  {sku:"DD-i2129002", name:"Sábanas planas Twin, blancas 66x104", cat:"Cama", sup:"DollarDays", unit:"$/unidad", cost:6.52, b2b:8.99, img:"https://dollardays.imgix.net/images/u24/image2/060525045116576.jpg", ic:"▤", real:true},
-  {sku:"DD-i2390326", name:"Almohadas estándar Golden Choice", cat:"Cama", sup:"DollarDays", unit:"$/unidad", cost:10.50, b2b:13.99, img:"https://dollardays.imgix.net/images/i90/image2/022026012611831.png", ic:"◫", real:true},
-  {sku:"DD-i2394180", name:"Juego Cuatro en Línea", cat:"Juguetería", sup:"DollarDays", unit:"$/unidad", cost:3.55, b2b:4.99, img:"https://dollardays.imgix.net/images/r56/image2/081126115038701.jpg", ic:"◉", real:true},
-  {sku:"DD-i2383276", name:"Juegos magnéticos de viaje, 240 piezas", cat:"Juguetería", sup:"DollarDays", unit:"$/paquete", cost:2.77, b2b:3.99, img:"https://dollardays.imgix.net/images/d71/image2/032525093140452.jpg", ic:"◈", real:true},
-  {sku:"DD-i2364174", name:"Fichas de madera \"Mis Emociones\", 18pz (2+)", cat:"Juguetería", sup:"DollarDays", unit:"$/set", cost:25.99, b2b:34.99, img:"https://dollardays.imgix.net/images/l108/image2/73494.jpg", ic:"◧", real:true},
-  {sku:"DD-i2317852", name:"Ungame de bolsillo, todas las edades (2-6 jug.)", cat:"Juguetería", sup:"DollarDays", unit:"$/unidad", cost:11.69, b2b:15.99, img:"https://dollardays.imgix.net/images/t146/image2/1300.jpg", ic:"◆", real:true},
-  {sku:"DD-i1215382", name:"Sábanas planas Twin blancas, 66x115", cat:"Cama", sup:"DollarDays", unit:"$/unidad", cost:8.55, b2b:11.99, img:"https://dollardays.imgix.net/images/u24/image2/sheet-2.jpg", ic:"▥", real:true},
-  {sku:"DD-i2379865", name:"Sábana ajustable T180, Twin XL", cat:"Cama", sup:"DollarDays", unit:"$/unidad", cost:7.80, b2b:10.99, img:"https://dollardays.imgix.net/images/i90/image2/101524100231852.png", ic:"▦", real:true},
-  {sku:"DD-i2387892", name:"Cobija extra suave 50x60", cat:"Cama", sup:"DollarDays", unit:"$/unidad", cost:9.99, b2b:13.99, img:"https://dollardays.imgix.net/images/d151/image2/092225085353267.jpg", ic:"▧", real:true},
-  {sku:"DD-i2364187", name:"Pares de emociones para emparejar (educativo)", cat:"Juguetería", sup:"DollarDays", unit:"$/set", cost:19.59, b2b:26.99, img:"https://dollardays.imgix.net/images/l108/image2/ff2995.jpg", ic:"◨", real:true},
-  {sku:"DD-i2317855", name:"Ungame temas familiares", cat:"Juguetería", sup:"DollarDays", unit:"$/unidad", cost:11.69, b2b:15.99, img:"https://dollardays.imgix.net/images/t146/image2/1300.jpg", ic:"◧", real:true},
-  {sku:"KOLE-GLV10", name:"Guantes de vinilo Mr. Clean, 10pk", cat:"Limpieza", sup:"Kole", unit:"$/paquete", cost:1.10, b2b:1.69, img:"https://www.koleimports.com/media/catalog/product/C/B/CB471.jpg", ic:"✥", real:true},
-  {sku:"KOLE-BRM46", name:"Escoba 46\" cerda suave con borde", cat:"Limpieza", sup:"Kole", unit:"$/unidad", cost:2.50, b2b:3.49, img:"https://www.koleimports.com/media/catalog/product/A/S/AS539.jpg", ic:"❖", real:true},
-  {sku:"KOLE-CLP40", name:"Pinzas de ropa de madera, 40pc", cat:"Limpieza", sup:"Kole", unit:"$/paquete", cost:0.85, b2b:1.29, img:"https://www.koleimports.com/media/catalog/product/D/A/DA732.jpg", ic:"✧", real:true},
-  {sku:"KOLE-FRTH", name:"Espumador de leche, negro", cat:"Cocina", sup:"Kole", unit:"$/unidad", cost:1.35, b2b:1.99, img:"https://www.koleimports.com/media/catalog/product/A/S/AS733.jpg", ic:"◍", real:true},
-  {sku:"KOLE-CNTR", name:"Set de contenedores metálicos apilables", cat:"Cocina", sup:"Kole", unit:"$/set", cost:3.75, b2b:4.99, img:"https://www.koleimports.com/media/catalog/product/A/J/AJ069.jpg", ic:"▨", real:true},
-  {sku:"KOLE-STRW", name:"Pajillas de acero reutilizables, 14pk", cat:"Cocina", sup:"Kole", unit:"$/paquete", cost:2.50, b2b:3.49, img:"https://www.koleimports.com/media/catalog/product/A/S/AS539.jpg", ic:"◈", real:true},
-  {sku:"KOLE-TMBL", name:"Vaso térmico de acero 30oz", cat:"Cocina", sup:"Kole", unit:"$/unidad", cost:4.40, b2b:5.99, img:"https://www.koleimports.com/media/catalog/product/C/A/CA639.jpg", ic:"◎", real:true},
-  {sku:"KOLE-COOL", name:"Enfriador portátil para 6 latas", cat:"Cocina", sup:"Kole", unit:"$/unidad", cost:3.00, b2b:4.29, img:"https://www.koleimports.com/media/catalog/product/A/N/AN846.jpg", ic:"◇", real:true},
-  {sku:"KOLE-SHOE", name:"Organizador de zapatos 3 niveles, 9 pares", cat:"Empaque", sup:"Kole", unit:"$/unidad", cost:4.40, b2b:5.99, img:"https://www.koleimports.com/media/catalog/product/C/A/CA639.jpg", ic:"▣", real:true},
-  {sku:"KOLE-SLID", name:"Deslizadores de muebles, set", cat:"Empaque", sup:"Kole", unit:"$/set", cost:4.40, b2b:5.99, img:"https://www.koleimports.com/media/catalog/product/C/A/CA639.jpg", ic:"▦", real:true},
-  {sku:"KOLE-WBS", name:"Estación de llenado de globos de agua", cat:"Juguetería", sup:"Kole", unit:"$/unidad", cost:3.25, b2b:4.49, img:"https://www.koleimports.com/media/catalog/product/O/L/OL803.jpg", ic:"◉", real:true},
-  {sku:"KOLE-PLMO", name:"Peluche Smoko Mochi 10\"", cat:"Juguetería", sup:"Kole", unit:"$/unidad", cost:5.75, b2b:7.99, img:"https://www.koleimports.com/media/catalog/product/A/U/AU412.jpg", ic:"◍", real:true},
-  {sku:"KOLE-PLSL", name:"Peluche Larry el perezoso 9\"", cat:"Juguetería", sup:"Kole", unit:"$/unidad", cost:1.90, b2b:2.79, img:"https://www.koleimports.com/media/catalog/product/A/S/AS235.jpg", ic:"◈", real:true},
-  {sku:"KOLE-DCFLY", name:"Figura voladora DC (surtida)", cat:"Juguetería", sup:"Kole", unit:"$/unidad", cost:4.25, b2b:5.99, img:"https://www.koleimports.com/media/catalog/product/A/S/AS808.jpg", ic:"◆", real:true},
-  {sku:"KOLE-CNDL", name:"Velas de cumpleaños surtidas, 24pk", cat:"Fiesta", sup:"Kole", unit:"$/paquete", cost:0.80, b2b:1.19, img:"https://www.koleimports.com/media/catalog/product/A/N/AN469.jpg", ic:"✦", real:true},
-  {sku:"KOLE-CFGL", name:"Lentes de novedad con confeti", cat:"Fiesta", sup:"Kole", unit:"$/unidad", cost:0.65, b2b:0.99, img:"https://www.koleimports.com/media/catalog/product/A/V/AV490.jpg", ic:"✧", real:true},
-  {sku:"KOLE-BLNK", name:"Kit de globos para figuras con bomba", cat:"Fiesta", sup:"Kole", unit:"$/set", cost:1.65, b2b:2.49, img:"https://www.koleimports.com/media/catalog/product/A/U/AU731.jpg", ic:"✥", real:true},
-  {sku:"KOLE-PADS", name:"Pads de entrenamiento desechables, 10pk", cat:"Mascotas", sup:"Kole", unit:"$/paquete", cost:1.85, b2b:2.69, img:"https://www.koleimports.com/media/catalog/product/G/E/GE658.jpg", ic:"◐", real:true},
-  {sku:"KOLE-CATT", name:"Torre de juguete para gatos con cascabeles", cat:"Mascotas", sup:"Kole", unit:"$/unidad", cost:3.75, b2b:4.99, img:"https://www.koleimports.com/media/catalog/product/A/J/AJ069.jpg", ic:"◑", real:true},
-  {sku:"KOLE-SCRT", name:"Rascador de yute natural para gatos", cat:"Mascotas", sup:"Kole", unit:"$/unidad", cost:6.60, b2b:8.99, img:"https://www.koleimports.com/media/catalog/product/A/V/AV586.jpg", ic:"◒", real:true},
-  {sku:"KOLE-SEAT", name:"Cubre-asiento impermeable para perro", cat:"Mascotas", sup:"Kole", unit:"$/unidad", cost:26.40, b2b:34.99, img:"https://www.koleimports.com/media/catalog/product/A/V/AV323.jpg", ic:"▣", real:true},
-  {sku:"KOLE-PILL", name:"Organizador de pastillas 31 días", cat:"Salud", sup:"Kole", unit:"$/unidad", cost:2.15, b2b:2.99, img:"https://www.koleimports.com/media/catalog/product/A/P/AP841.jpg", ic:"◐", real:true},
-  {sku:"KOLE-BAND", name:"Banditas surtidas, 100ct", cat:"Salud", sup:"Kole", unit:"$/paquete", cost:1.40, b2b:1.99, img:"https://www.koleimports.com/media/catalog/product/A/U/AU884.jpg", ic:"◑", real:true},
-  {sku:"KOLE-FAID", name:"Kit de primeros auxilios de viaje", cat:"Salud", sup:"Kole", unit:"$/unidad", cost:1.40, b2b:1.99, img:"https://www.koleimports.com/media/catalog/product/A/U/AU884.jpg", ic:"◒", real:true},
-  {sku:"KOLE-GELW", name:"Envoltura de gel terapéutico para espalda", cat:"Salud", sup:"Kole", unit:"$/unidad", cost:4.30, b2b:5.99, img:"https://www.koleimports.com/media/catalog/product/O/T/OT164.jpg", ic:"◓", real:true},
-  {sku:"KOLE-HAMR", name:"Martillo de uña, mango de acero", cat:"Herramientas", sup:"Kole", unit:"$/unidad", cost:3.85, b2b:4.99, img:"https://www.koleimports.com/media/catalog/product/A/N/AN834.jpg", ic:"✦", real:true},
-  {sku:"KOLE-GLUE", name:"Super Glue, 4 pack", cat:"Herramientas", sup:"Kole", unit:"$/paquete", cost:1.10, b2b:1.69, img:"https://www.koleimports.com/media/catalog/product/C/B/CB471.jpg", ic:"✧", real:true},
-  {sku:"KOLE-FLSH", name:"Set de 3 linternas LED mini 2 en 1", cat:"Herramientas", sup:"Kole", unit:"$/set", cost:2.75, b2b:3.79, img:"https://www.koleimports.com/media/catalog/product/D/A/DA763.jpg", ic:"✥", real:true},
-  {sku:"KOLE-CMNT", name:"Cemento de contacto, 3 piezas", cat:"Herramientas", sup:"Kole", unit:"$/paquete", cost:1.85, b2b:2.69, img:"https://www.koleimports.com/media/catalog/product/G/E/GE658.jpg", ic:"✤", real:true},
-  {sku:"KOLE-DIFF", name:"Difusor de aroma LED sin agua", cat:"Hogar", sup:"Kole", unit:"$/unidad", cost:4.40, b2b:5.99, img:"https://www.koleimports.com/media/catalog/product/C/A/CA639.jpg", ic:"◈", real:true},
-  {sku:"KOLE-HMDF", name:"Humidificador de niebla fría 2.5L", cat:"Hogar", sup:"Kole", unit:"$/unidad", cost:8.25, b2b:10.99, img:"https://www.koleimports.com/media/catalog/product/A/O/AO646.jpg", ic:"◉", real:true},
-  {sku:"KOLE-WALL", name:"Decoración de pared translúcida", cat:"Hogar", sup:"Kole", unit:"$/unidad", cost:0.29, b2b:0.49, img:"https://www.koleimports.com/media/catalog/product/A/Q/AQ497.jpg", ic:"◇", real:true},
-  {sku:"KOLE-OC557", name:"Caja fuerte oculta tipo diccionario", cat:"Hogar", sup:"Kole", unit:"$/unidad", cost:7.15, b2b:9.99, img:"https://www.koleimports.com/media/catalog/product/O/C/OC557_1.jpg", ic:"◧", real:true},
-  {sku:"KOLE-CB442", name:"Estante de pared madera y metal 13.5x5.3", cat:"Hogar", sup:"Kole", unit:"$/unidad", cost:4.70, b2b:6.99, img:"https://www.koleimports.com/media/catalog/product/C/B/CB442_1.jpg", ic:"▣", real:true},
-  {sku:"KOLE-CB193", name:"Set jardín zen de sal del Himalaya", cat:"Hogar", sup:"Kole", unit:"$/set", cost:4.15, b2b:5.99, img:"https://www.koleimports.com/media/catalog/product/C/B/CB193_1.jpg", ic:"◫", real:true},
-  {sku:"KOLE-CA643", name:"Estante metálico 2 niveles, luna creciente", cat:"Hogar", sup:"Kole", unit:"$/unidad", cost:3.85, b2b:5.49, img:"https://www.koleimports.com/media/catalog/product/A/N/AN834.jpg", ic:"◨", real:true},
-  {sku:"KOLE-AS779", name:"Humidificador LED iJoy 4Terra (ABS reciclado)", cat:"Hogar", sup:"Kole", unit:"$/unidad", cost:3.30, b2b:4.99, img:"https://www.koleimports.com/media/catalog/product/A/S/AS779_1.jpg", ic:"◈", real:true},
-  {sku:"UL-SOON", name:"Empaque y envío Uline (a cotizar)", cat:"Empaque", sup:"Uline", unit:"cotizar", cost:null, b2b:null, ic:"▤", real:false},
-];
+const PRODUCTS = [];
 
 const grid=document.getElementById('catGrid');
 let filter='all';
